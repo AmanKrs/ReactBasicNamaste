@@ -1560,19 +1560,20 @@ const restuarantList = [
   },
 ];
 
-const RestuarantCard = (props) => {
-  const { restuarantInfo } = props; //destructing data from props passes through body component
+const RestuarantCard = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
+  // const { restuarantInfo } = props; //destructing data from props passes through body component
+  console.log(name, cuisines, avgRating, cloudinaryImageId);
   return (
     <>
       <div className="card">
         <img
-          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${restuarantInfo.cloudinaryImageId}`}
+          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
           alt="resImg"
         />
         <div className="cardInfo">
-          <h3>{restuarantInfo.name}</h3>
-          <h4>{restuarantInfo.cuisines.join(", ")}</h4>
-          <p>{restuarantInfo.avgRating} ⭐</p>
+          <h3>{name}</h3>
+          <h4>{cuisines.join(", ")}</h4>
+          <p>{avgRating} ⭐</p>
         </div>
       </div>
     </>
@@ -1604,12 +1605,17 @@ const HeaderComponent = () => {
 
 const Body = () => (
   <>
-  <div className="res-list">
-     <RestuarantCard restuarantInfo={restuarantList[0].info} />
-    <RestuarantCard restuarantInfo={restuarantList[1].info} />
-    <RestuarantCard restuarantInfo={restuarantList[2].info} />
-  </div>
-   
+    <div className="res-list">
+      <RestuarantCard {...restuarantList[0]?.info} />
+      <RestuarantCard {...restuarantList[1]?.info} />
+      <RestuarantCard {...restuarantList[2]?.info} />
+      <RestuarantCard {...restuarantList[3]?.info} />
+      <RestuarantCard {...restuarantList[4]?.info} />
+      <RestuarantCard {...restuarantList[5]?.info} />
+      <RestuarantCard {...restuarantList[6]?.info} />
+      <RestuarantCard {...restuarantList[7]?.info} />
+      <RestuarantCard {...restuarantList[8]?.info} />
+    </div>
   </>
 );
 const Footer = () => <h1>Footer</h1>;
