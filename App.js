@@ -1,37 +1,66 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM, { createRoot } from "react-dom/client";
 
-//react element
-const jsx = (
-  <h1 id="title" key="qw12">
-    React with jsx
-  </h1>
-);
 
-// diff way to write react component without return keyword
+const RestuarantCard = () => {
+  return (
+    <>
+      <div className="card">
+        <img src="" alt="resImg" />
+        <div className="cardInfo">
+          <h3>McDonald's</h3>
+          <h4>American</h4>
+          <p>4.2 star</p>
+        </div>
+      </div>
+    </>
+  );
+};
 const Title = () => (
   <h1 id="title" key="qw12">
-    react component without return
+    FoodAPP
   </h1>
 );
-
-//functional component
 
 const HeaderComponent = () => {
   return (
-    <div>
-      {/* way to write react element in react component as it is a variable*/}
-      {jsx}
-      {/* way to call or add react component inside react component */}
-      {/* this is called component composition */}
-      <Title /> 
-      {/* way to call react component using {} */}
-      {Title()}
-      <h1>Hello Functional Component</h1>
-    </div>
+    <>
+      <div className="header">
+        <Title />
+        <nav className="nav">
+          <ul>
+            <li>Home</li>
+            <li>About us</li>
+            <li>Contact us</li>
+            <li>Cart</li>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 };
-const root = ReactDOM.createRoot(document.getElementById("root"));
 
-console.log(jsx);
-root.render(<HeaderComponent />);
+const Body = () => (
+  <h1 id="title" key="qw12">
+    <RestuarantCard />
+  </h1>
+);
+const Footer = () => (
+  <h1 id="title" key="qw12">
+    Footer
+  </h1>
+);
+
+const App = () => {
+  return (
+    <>
+      <HeaderComponent />
+      <Body />
+      <Footer />
+    </>
+  );
+};
+
+const root = createRoot(document.getElementById("root"));
+
+root.render(<App />);
