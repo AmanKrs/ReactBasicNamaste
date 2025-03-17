@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM, { createRoot } from "react-dom/client";
- import Title from "./component/Title";
- 
+import HeaderComponent from "./component/HeaderComponent";
+
 const mcDonald = {
   name: "McDonald's",
   img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/1/9/9c9ca5f0-b219-46b5-bbba-ea2594524624_804248.JPG",
@@ -1568,7 +1568,6 @@ const RestuarantCard = ({
   cloudinaryImageId,
   costForTwo,
 }) => {
-
   // const { restuarantInfo } = props; //destructing data from props passes through body component
   console.log(name, cuisines, avgRating, cloudinaryImageId);
   return (
@@ -1585,27 +1584,7 @@ const RestuarantCard = ({
             <span className="rating"> {avgRating} ⭐</span>
             <span>{costForTwo}</span>
           </p>
-
         </div>
-      </div>
-    </>
-  );
-};
-
-
-const HeaderComponent = () => {
-  return (
-    <>
-      <div className="header">
-        <Title />
-        <nav className="nav">
-          <ul>
-            <li>Home</li>
-            <li>About us</li>
-            <li>Contact us</li>
-            <li>Cart</li>
-          </ul>
-        </nav>
       </div>
     </>
   );
@@ -1614,11 +1593,9 @@ const HeaderComponent = () => {
 const Body = () => (
   <>
     <div className="res-list">
-
       {restuarantList.map((rest, idx) => {
         return <RestuarantCard {...rest?.info} key={idx} />;
       })}
-
     </div>
   </>
 );
@@ -1635,4 +1612,3 @@ const App = () => {
 };
 
 export default App;
-
