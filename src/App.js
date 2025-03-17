@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM, { createRoot } from "react-dom/client";
-
+ import Title from "./component/Title";
+ 
 const mcDonald = {
   name: "McDonald's",
   img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/1/9/9c9ca5f0-b219-46b5-bbba-ea2594524624_804248.JPG",
@@ -1590,11 +1591,7 @@ const RestuarantCard = ({
     </>
   );
 };
-const Title = () => (
-  <h1 id="title" key="qw12">
-    FoodAPP
-  </h1>
-);
+
 
 const HeaderComponent = () => {
   return (
