@@ -1560,7 +1560,14 @@ const restuarantList = [
   },
 ];
 
-const RestuarantCard = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
+const RestuarantCard = ({
+  name,
+  cuisines,
+  avgRating,
+  cloudinaryImageId,
+  costForTwo,
+}) => {
+
   // const { restuarantInfo } = props; //destructing data from props passes through body component
   console.log(name, cuisines, avgRating, cloudinaryImageId);
   return (
@@ -1573,7 +1580,11 @@ const RestuarantCard = ({ name, cuisines, avgRating, cloudinaryImageId }) => {
         <div className="cardInfo">
           <h3>{name}</h3>
           <h4>{cuisines.join(", ")}</h4>
-          <p>{avgRating} ⭐</p>
+          <p>
+            <span className="rating"> {avgRating} ⭐</span>
+            <span>{costForTwo}</span>
+          </p>
+
         </div>
       </div>
     </>
@@ -1606,15 +1617,11 @@ const HeaderComponent = () => {
 const Body = () => (
   <>
     <div className="res-list">
-      <RestuarantCard {...restuarantList[0]?.info} />
-      <RestuarantCard {...restuarantList[1]?.info} />
-      <RestuarantCard {...restuarantList[2]?.info} />
-      <RestuarantCard {...restuarantList[3]?.info} />
-      <RestuarantCard {...restuarantList[4]?.info} />
-      <RestuarantCard {...restuarantList[5]?.info} />
-      <RestuarantCard {...restuarantList[6]?.info} />
-      <RestuarantCard {...restuarantList[7]?.info} />
-      <RestuarantCard {...restuarantList[8]?.info} />
+
+      {restuarantList.map((rest, idx) => {
+        return <RestuarantCard {...rest?.info} key={idx} />;
+      })}
+
     </div>
   </>
 );
@@ -1630,6 +1637,5 @@ const App = () => {
   );
 };
 
-const root = createRoot(document.getElementById("root"));
+export default App;
 
-root.render(<App />);
