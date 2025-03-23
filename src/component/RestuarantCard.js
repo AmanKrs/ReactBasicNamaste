@@ -6,7 +6,7 @@ const RestuarantCard = ({
   costForTwo,
 }) => {
   // const { restuarantInfo } = props; //destructing data from props passes through body component
-  console.log(name, cuisines, avgRating, cloudinaryImageId);
+  // console.log(name, cuisines, avgRating, cloudinaryImageId);
   return (
     <>
       <div className="card">
